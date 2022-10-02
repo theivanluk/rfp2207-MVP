@@ -51,7 +51,6 @@ export async function main (width, callback, saveState, setSaveState, mutate, se
 
     planeContext.save();
 
-
     for (let i = 0; i < terrain.length; i++) {
       terrain[i].update(road.borders);
     }
@@ -70,7 +69,6 @@ export async function main (width, callback, saveState, setSaveState, mutate, se
 
     planeContext.translate(0, -bestIteration.y + planeCanvas.height * 0.8);
 
-
     if (save === true) {
       console.log(bestIteration.brain, 'Best Brain');
       localStorage.setItem("bestBrain", JSON.stringify(bestIteration.brain));
@@ -82,7 +80,6 @@ export async function main (width, callback, saveState, setSaveState, mutate, se
 
     if (Math.abs(positionTracker - bestIteration.y) < 50) {
       stopCounter += 1;
-      // console.log(stopCounter);
     } else {
       stopCounter = 0;
       positionTracker = bestIteration.y

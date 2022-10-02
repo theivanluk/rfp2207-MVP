@@ -13,7 +13,6 @@ export function generateTerrain (courseLength, road, laneCount) {
   const randomizer3 = getRandomIntInclusive(15,20);
 
   for (let i = 0; i > courseLength; i-= incrementHeight) {
-    if (i === 0) { continue }
 
     let center = Math.floor(laneCount/2) + 1.25*Math.sin(i/50);
     let leftSpace = road.getlaneCenter(0);
@@ -27,7 +26,7 @@ export function generateTerrain (courseLength, road, laneCount) {
 
     if(j % randomizer3 !== 0) {
       course.push(
-        new EntityRock(side, i * 2, width, height, "BOT", 0),
+        new EntityRock(side, i * 2, width, height),
       )
     }
 

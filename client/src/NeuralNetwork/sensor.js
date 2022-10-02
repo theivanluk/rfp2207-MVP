@@ -1,8 +1,8 @@
 import * as utils from './utils.js';
 
 export class Sensor {
-  constructor (car) {
-    this.car = car;
+  constructor (plane) {
+    this.plane = plane;
     this.rayCount = 13;
     this.rayLength = 300;
     this.raySpread = 2 * Math.PI;
@@ -67,13 +67,13 @@ export class Sensor {
         this.raySpread/2,
         -this.raySpread/2,
         i/(this.rayCount - 1)
-      ) + this.car.angle;
+      ) + this.plane.angle;
 
       const factor = (i) => -0.02380952381 * (i ** 2) + i * 0.3095238095 + 1
-      const start = {x: this.car.x, y: this.car.y};
+      const start = {x: this.plane.x, y: this.plane.y};
       const end = {
-        x: this.car.x - Math.sin(rayAngle) * this.rayLength * factor(i),
-        y: this.car.y - Math.cos(rayAngle) * this.rayLength * factor(i)
+        x: this.plane.x - Math.sin(rayAngle) * this.rayLength * factor(i),
+        y: this.plane.y - Math.cos(rayAngle) * this.rayLength * factor(i)
       };
       this.rays.push([start, end])
     }

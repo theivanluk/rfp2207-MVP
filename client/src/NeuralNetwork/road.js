@@ -34,18 +34,8 @@ export class Road {
 
   draw(context) {
     context.lineWidth = 5;
-    // context.strokeStyle = 'rgba(0,0,0,0)';
+
     context.strokeStyle = "white";
-
-    // for (let i = 1; i <= this.laneCount - 1; i++) {
-    //   const x = lerp(this.left, this.right, i/this.laneCount);
-    //   context.setLineDash([20, 20])
-    //   context.beginPath();
-    //   context.moveTo(x, this.top);
-    //   context.lineTo(x, this.bottom);
-    //   context.stroke();
-    // }
-
 
     context.fillStyle = context.createPattern(this.terrain, 'repeat');
     context.fillRect(-this.width/2, this.top, this.width * 4, 2 * this.bottom)
@@ -58,8 +48,4 @@ export class Road {
       context.stroke();
     })
   }
-}
-
-function lerp(A, B, t) {
-  return A + (B - A) * t;
 }

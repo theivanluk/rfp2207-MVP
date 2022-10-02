@@ -6,15 +6,13 @@ import jet from './../../assets/images/f-22.png'
 import rock from './../../assets/images/boulder.png'
 
 export class EntityRock {
-  constructor (x, y, width, height, controlType, cruiseSpeed = 4) {
+  constructor (x, y, width, height) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
 
     this.angle = 0;
-    this.controlType = controlType;
-    this.useBrain = controlType === "AI";
 
     this.texture = new Image();
     this.texture.src = rock;
@@ -27,7 +25,7 @@ export class EntityRock {
 
   #createPolygon () {
     const points = [];
-    // const radius = Math.hypot(this.width, this.height)/2;
+
     const radius = this.width/2;
     const angle = Math.atan2(this.width, this.height);
     points.push({
